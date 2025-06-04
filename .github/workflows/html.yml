@@ -1,0 +1,19 @@
+name: HTML Validation
+
+on:
+  push:
+    paths:
+      - 'index.html'
+      - '.github/workflows/html.yml'
+  pull_request:
+    paths:
+      - 'index.html'
+      - '.github/workflows/html.yml'
+
+jobs:
+  html-validation:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Validate HTML
+        run: npx --yes htmlhint index.html
